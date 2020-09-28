@@ -1,0 +1,10 @@
+{
+  "domain": "icalendar",
+  "name": "iCalendar",
+  "documentation": "https://www.home-assistant.io/integrations/icalendar",
+  "requirements": [
+    "icalendar==4.0.7",
+    "recurring-ical-events==0.1.19b0"
+  ],
+  "codeowners": []
+}

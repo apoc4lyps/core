@@ -797,6 +797,9 @@ ibm-watson==4.0.1
 # homeassistant.components.watson_iot
 ibmiotf==0.3.4
 
+# homeassistant.components.icalendar
+icalendar==4.0.7
+
 # homeassistant.components.ping
 icmplib==1.1.3
 
@@ -1901,6 +1904,9 @@ raspyrfm-client==1.2.8
 
 # homeassistant.components.recollect_waste
 recollect-waste==1.0.1
+
+# homeassistant.components.icalendar
+recurring-ical-events==0.1.19b0
 
 # homeassistant.components.rainmachine
 regenmaschine==2.1.0
