@@ -33,6 +33,7 @@ _LOGGER = logging.getLogger(__name__)
 
 CONF_SEARCH = "search"
 CONF_DAYS = "days"
+CONF_ALL_DAYS = "all_days"
 
 OFFSET = "!!"
 
@@ -44,6 +45,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Inclusive(CONF_USERNAME, "authentication"): cv.string,
         vol.Inclusive(CONF_PASSWORD, "authentication"): cv.string,
         vol.Optional(CONF_VERIFY_SSL, default=True): cv.boolean,
+        vol.Optional(CONF_ALL_DAYS, default=False): cv.boolean,
         vol.Optional(CONF_DAYS, default=7): cv.positive_int,
         vol.Optional(CONF_SEARCH, default=".*"): cv.string,
     }
@@ -57,6 +59,7 @@ def setup_platform(hass, config, add_entities, disc_info=None):
     url = config.get(CONF_URL)
     name = config.get(CONF_NAME)
     days = config.get(CONF_DAYS)
+    all_day = config.get(CONF_ALL_DAYS)
     search = config.get(CONF_SEARCH)
     username = config.get(CONF_USERNAME)
     password = config.get(CONF_PASSWORD)
@@ -65,7 +68,7 @@ def setup_platform(hass, config, add_entities, disc_info=None):
 
     entity_id = generate_entity_id(ENTITY_ID_FORMAT, name, hass=hass)
     entity = ICalendarCalendarEventDevice(
-        name, url, username, password, entity_id, days, search
+        name, url, username, password, entity_id, days, search, all_day
     )
     entities.append(entity)
 
